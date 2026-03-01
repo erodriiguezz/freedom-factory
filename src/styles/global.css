@@ -104,34 +104,24 @@ h4 {
 }
 
 .btn-primary {
-  background: var(--ff-primary);
+  background: var(--ff-secondary);
   color: white;
 }
 
 .btn-primary:hover {
-  background: var(--ff-primary-dark);
-  transform: translateY(-1px);
+  background: var(--ff-secondary-dim);
+  transform: translateY(-5px);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--ff-white);
+  color: var(--ff-white) !important;
   border: 2px solid var(--ff-white);
 }
 
 .btn-secondary:hover {
   background: var(--ff-white);
-  color: var(--ff-black);
-}
-
-.btn-yellow {
-  background: var(--ff-secondary);
-  color: var(--ff-black);
-}
-
-.btn-yellow:hover {
-  background: var(--ff-secondary-dim);
-  transform: translateY(-1px);
+  color: var(--ff-black) !important;
 }
 
 /* Utilities */

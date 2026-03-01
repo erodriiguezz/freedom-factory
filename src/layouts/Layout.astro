@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 export interface Props {
   title: string;
   description?: string;
@@ -19,7 +21,7 @@ const {
     <title>{title} | Freedom Factory | Bradenton, FL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <!-- <link rel="stylesheet" href="/src/styles/global.css" /> -->
     <link rel="icon" type="image/svg+xml" href="/logo.avif" />
   </head>
   <body>
@@ -42,7 +44,7 @@ const {
       <div class="container header-inner">
         <a href="/" class="logo" aria-label="Freedom Factory Home">
           <img
-            src="/public/logo.avif"
+            src="/logo.avif"
             alt="Freedom Factory Logo"
             style="height: 75px;"
           />
@@ -65,7 +67,7 @@ const {
         <div class="header-cta">
           <a
             href="https://tickets.thefoat.com/FreedomFactory"
-            class="btn btn-yellow"
+            class="btn btn-secondary"
             target="_blank"
             rel="noopener"
           >
@@ -96,7 +98,7 @@ const {
         <div class="footer-brand">
           <div class="footer-logo">
             <img
-              src="/public/logo.avif"
+              src="/logo.avif"
               alt="Freedom Factory Logo"
               style="height: 150px;"
             />
@@ -183,7 +185,7 @@ const {
               href="https://tickets.thefoat.com/FreedomFactory"
               target="_blank"
               rel="noopener"
-              class="btn btn-yellow"
+              class="btn btn-secondary"
               style="margin-top:12px; display:inline-flex;">Get Tickets</a
             >
           </div>
