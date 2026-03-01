@@ -1,0 +1,691 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const classes = [
+  {
+    id: "general-rules",
+    name: "General Rules",
+    description:
+      "Required reading for ALL competitors. Safety, conduct, tech inspection, and general event procedures that apply across all racing classes.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_e5993df9d1754fe2ac82e7630b08c124.pdf",
+    category: "required",
+    icon: "📋",
+  },
+  {
+    id: "crown-vic",
+    name: "Crown Victoria",
+    description:
+      "Full-size Ford Crown Victoria stock car racing. One of the most popular and accessible entry points for new competitors.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_650b03f6429442d09ca0d85964398b74.pdf",
+    category: "circle",
+    icon: "🚔",
+  },
+  {
+    id: "burnout-rivals",
+    name: "Burnout Rivals",
+    description:
+      "The legendary Burnout Rivals competition — judged on smoke, style, and sustained tire destruction. Crowd favorite every event.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_0e69311f137846479be10ca391ab9927.pdf",
+    category: "special",
+    icon: "💨",
+  },
+  {
+    id: "rangers",
+    name: "Danger Ranger 9000",
+    description:
+      "Ford Ranger class racing. Budget-friendly, highly competitive, and absolutely wild on the 3/8-mile oval.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_4c2bba825092421dbe3b67cf1e925ed0.pdf",
+    category: "circle",
+    icon: "🛻",
+  },
+  {
+    id: "spectator-drags",
+    name: "Spectator Drags",
+    description:
+      "Your street car, our drag strip. The spectator drag competition lets fans put their money where their mouth is.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/ee7d67_362450dd715d444b8a182bff54bc9302.pdf",
+    category: "special",
+    icon: "⚡",
+  },
+  {
+    id: "mini-stocks",
+    name: "Mini Stocks",
+    description:
+      "Compact and subcompact car class. Highly competitive, affordable to build, and one of the best racing classes on the property.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/ee7d67_3232f3ca71d745d0aefb410653fcac93.docx",
+    category: "circle",
+    icon: "🚗",
+    fileType: "DOCX",
+  },
+  {
+    id: "altima-enduro",
+    name: "Altima 600 Enduro",
+    description:
+      "The Nissan Altima endurance class — keep it under $600 and last as long as the car will take you. Budget endurance at its finest.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_b89c707af4c84b1dbb457e922ed0ee79.pdf",
+    category: "circle",
+    icon: "🏁",
+  },
+  {
+    id: "open-wheel-mod",
+    name: "Open Wheel Modified",
+    description:
+      "Purpose-built open wheel modified race cars. The most technically advanced class that races at Freedom Factory.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_0e83f6ba1b684a59a0214b037682d12a.pdf",
+    category: "circle",
+    icon: "🏎",
+  },
+  {
+    id: "pure-stock",
+    name: "Pure Stock",
+    description:
+      "Factory stock cars with minimal modifications. Perfect class for first-time competitors wanting to get on track.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_42041a8da0e04dd7b24efd7109241170.pdf",
+    category: "circle",
+    icon: "🔧",
+  },
+  {
+    id: "pro-trucks",
+    name: "Pro Trucks",
+    description:
+      "Full-size pickup trucks built to race. Aggressive, loud, and hugely entertaining for fans and drivers alike.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/ee7d67_6ad8babf58564f8da992acd30ca71ea4.pdf",
+    category: "circle",
+    icon: "🚛",
+  },
+  {
+    id: "super-late-models",
+    name: "Super Late Models",
+    description:
+      "The pinnacle of short track racing. The fastest, most sophisticated cars that take the grid at Freedom Factory.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/c3badd_2a545c015937406e9dbe6422c51dcb23.pdf",
+    category: "circle",
+    icon: "⚡",
+  },
+  {
+    id: "mod-mini",
+    name: "Mod Mini",
+    description:
+      "Modified mini stock class — takes the accessibility of mini stocks and adds a rules package that allows more performance modifications.",
+    rulesUrl:
+      "https://www.freedomfactoryusa.com/_files/ugd/ee7d67_db6b4f7e34eb4d8cbd6c576a008e518f.pdf",
+    category: "circle",
+    icon: "🛞",
+  },
+];
+
+const requiredClasses = classes.filter((c) => c.category === "required");
+const circleClasses = classes.filter((c) => c.category === "circle");
+const specialClasses = classes.filter((c) => c.category === "special");
+---
+
+<Layout
+  title="Competitors"
+  description="Freedom Factory USA competitor hub. Racing class rules, registration info, tech requirements, and everything you need to race at the world-famous Freedom Factory."
+>
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">For Racers</div>
+      <h1>Competitor Hub</h1>
+      <p>
+        Everything you need to race at Freedom Factory. Download class rules,
+        find registration links, and get tech-ready for race day.
+      </p>
+      <div class="hero-ctas">
+        <a href="#rules" class="btn btn-yellow">Download Rules</a>
+        <a href="#registration" class="btn btn-secondary">Registration Info</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Links Bar -->
+  <div class="quick-bar">
+    <div class="container quick-bar-inner">
+      <span class="quick-label">Jump to:</span>
+      <a href="#required" class="quick-link">⚠️ Required Reading</a>
+      <a href="#circle-track" class="quick-link">🏁 Circle Track Classes</a>
+      <a href="#special-events" class="quick-link">💨 Special Events</a>
+      <a href="#registration" class="quick-link">📝 Registration</a>
+      <a href="#contact" class="quick-link">📞 Contact</a>
+    </div>
+  </div>
+
+  <!-- Start Here Banner -->
+  <section class="start-here" id="required">
+    <div class="container">
+      <div class="start-banner">
+        <div class="start-icon">⚠️</div>
+        <div class="start-text">
+          <h2>Start Here: General Rules</h2>
+          <p>
+            ALL competitors must read and understand the General Rules before
+            racing at any Freedom Factory event. This covers safety equipment
+            requirements, tech inspection procedures, conduct rules, and general
+            operations.
+          </p>
+        </div>
+        <a
+          href="https://www.freedomfactoryusa.com/_files/ugd/c3badd_e5993df9d1754fe2ac82e7630b08c124.pdf"
+          class="btn btn-yellow"
+          target="_blank"
+          rel="noopener"
+          download
+        >
+          📄 Download General Rules PDF
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rules Section -->
+  <section class="rules-section" id="rules">
+    <div class="container">
+      <!-- Circle Track Classes -->
+      <div id="circle-track" class="class-group">
+        <div class="class-group-header">
+          <div class="section-label">Circle Track Racing</div>
+          <h2>Racing Classes</h2>
+          <p>
+            Select your class below to download the full rulebook. All classes
+            also require compliance with the General Rules document above.
+          </p>
+        </div>
+        <div class="classes-grid">
+          {
+            circleClasses.map((cls) => (
+              <div class="class-card" id={cls.id}>
+                <div class="class-card-header">
+                  <span class="class-icon">{cls.icon}</span>
+                  <div>
+                    <h3 class="class-name">{cls.name}</h3>
+                    {cls.fileType && (
+                      <span class="file-badge">{cls.fileType}</span>
+                    )}
+                  </div>
+                </div>
+                <p class="class-desc">{cls.description}</p>
+                <a
+                  href={cls.rulesUrl}
+                  class="btn btn-primary class-dl-btn"
+                  target="_blank"
+                  rel="noopener"
+                  download
+                >
+                  📄 Download Rules{" "}
+                  {cls.fileType ? `(${cls.fileType})` : "(PDF)"}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Special Events -->
+      <div id="special-events" class="class-group">
+        <div class="class-group-header">
+          <div class="section-label">Special Events</div>
+          <h2>Exhibition & Fun Classes</h2>
+          <p>
+            Burnout competitions, spectator drag races, and more. Read the rules
+            specific to each event before registering.
+          </p>
+        </div>
+        <div class="classes-grid classes-grid-wide">
+          {
+            specialClasses.map((cls) => (
+              <div class="class-card class-card-special" id={cls.id}>
+                <div class="class-card-header">
+                  <span class="class-icon">{cls.icon}</span>
+                  <h3 class="class-name">{cls.name}</h3>
+                </div>
+                <p class="class-desc">{cls.description}</p>
+                <a
+                  href={cls.rulesUrl}
+                  class="btn btn-secondary class-dl-btn"
+                  target="_blank"
+                  rel="noopener"
+                  download
+                >
+                  📄 Download Rules (PDF)
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Section -->
+  <section class="registration-section" id="registration">
+    <div class="container">
+      <div class="reg-header">
+        <div class="section-label">Registration</div>
+        <h2>How to Register</h2>
+      </div>
+      <div class="reg-grid">
+        <div class="reg-step">
+          <div class="step-num">01</div>
+          <h3>Check the Schedule</h3>
+          <p>
+            Review the <a href="/schedule">2026 Schedule</a> to find events that feature
+            your racing class. Note event dates, venue locations, and any special
+            notes.
+          </p>
+        </div>
+        <div class="reg-step">
+          <div class="step-num">02</div>
+          <h3>Read Your Class Rules</h3>
+          <p>
+            Download and thoroughly read the rulebook for your class above, plus
+            the General Rules document. Tech inspection will enforce these rules
+            at the event.
+          </p>
+        </div>
+        <div class="reg-step">
+          <div class="step-num">03</div>
+          <h3>Register Online or at Gate</h3>
+          <p>
+            Advance entry is available through the event ticketing system.
+            Walk-up registration is also accepted at most events — check
+            event-specific announcements for deadlines.
+          </p>
+        </div>
+        <div class="reg-step">
+          <div class="step-num">04</div>
+          <h3>Arrive Early for Tech</h3>
+          <p>
+            Plan to arrive with enough time for technical inspection before the
+            event begins. Bring your car, all required safety gear, and your
+            registration confirmation.
+          </p>
+        </div>
+      </div>
+      <div class="reg-cta">
+        <a
+          href="https://tickets.thefoat.com/FreedomFactory"
+          class="btn btn-yellow"
+          target="_blank"
+          rel="noopener">Register / Buy Entry Online →</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="section-label">Questions?</div>
+        <h2>Get In Touch</h2>
+        <p>
+          Have questions about rules, registration, or racing at Freedom
+          Factory? Reach out to our events team.
+        </p>
+        <div class="contact-options">
+          <a href="mailto:events@fffl.com" class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <span class="contact-type">Email Events Team</span>
+              <span class="contact-value">events@fffl.com</span>
+            </div>
+          </a>
+          <div class="contact-card">
+            <span class="contact-icon">📍</span>
+            <div>
+              <span class="contact-type">Track Address</span>
+              <span class="contact-value">21050 FL-64, Bradenton, FL 34212</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #1a0505 0%, var(--ff-black) 100%);
+    border-bottom: 1px solid #222;
+    padding: 64px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: "COMPETE";
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-family: var(--font-display);
+    font-size: 220px;
+    color: rgba(232, 25, 44, 0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(56px, 8vw, 100px);
+    color: var(--ff-white);
+    margin-bottom: 12px;
+  }
+  .page-hero p {
+    color: var(--ff-gray);
+    font-size: 16px;
+    max-width: 540px;
+    margin-bottom: 24px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .quick-bar {
+    background: var(--ff-dark-2);
+    border-bottom: 1px solid #222;
+    padding: 12px 0;
+    overflow-x: auto;
+  }
+  .quick-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .quick-label {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .quick-link {
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--ff-light-gray);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    border: 1px solid #333;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .quick-link:hover {
+    color: var(--ff-white);
+    border-color: var(--ff-primary);
+    background: rgba(232, 25, 44, 0.08);
+  }
+
+  /* Start Here */
+  .start-here {
+    padding: 40px 0;
+  }
+  .start-banner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(
+      135deg,
+      rgba(232, 25, 44, 0.12),
+      rgba(232, 25, 44, 0.06)
+    );
+    border: 2px solid var(--ff-primary);
+    border-radius: 8px;
+    padding: 32px;
+  }
+  .start-icon {
+    font-size: 48px;
+  }
+  .start-text h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--ff-white);
+    margin-bottom: 8px;
+  }
+  .start-text p {
+    color: var(--ff-light-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+
+  /* Rules Section */
+  .rules-section {
+    padding: 0 0 60px;
+  }
+  .class-group {
+    margin-bottom: 64px;
+  }
+  .class-group-header {
+    margin-bottom: 28px;
+  }
+  .class-group-header h2 {
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--ff-white);
+    margin-bottom: 8px;
+  }
+  .class-group-header p {
+    color: var(--ff-gray);
+    font-size: 15px;
+    max-width: 520px;
+  }
+
+  .classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .classes-grid-wide {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  }
+
+  .class-card {
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
+  }
+  .class-card:hover {
+    border-color: var(--ff-primary);
+    transform: translateY(-2px);
+  }
+  .class-card-special {
+    border-color: #444;
+  }
+  .class-card-special:hover {
+    border-color: var(--ff-secondary);
+  }
+
+  .class-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .class-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .class-name {
+    font-family: var(--font-condensed);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ff-white);
+    letter-spacing: 0.04em;
+  }
+  .file-badge {
+    display: inline-block;
+    background: rgba(245, 197, 24, 0.15);
+    color: var(--ff-secondary);
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid rgba(245, 197, 24, 0.3);
+    margin-top: 2px;
+  }
+
+  .class-desc {
+    color: var(--ff-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  .class-dl-btn {
+    margin-top: auto;
+    align-self: flex-start;
+    font-size: 13px;
+  }
+
+  /* Registration */
+  .registration-section {
+    padding: var(--section-pad) 0;
+    background: var(--ff-dark-2);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+  }
+  .reg-header {
+    margin-bottom: 40px;
+  }
+  .reg-header h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--ff-white);
+  }
+  .reg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .reg-step {
+    background: var(--ff-dark-3);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 28px 24px;
+    position: relative;
+  }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: rgba(232, 25, 44, 0.2);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .reg-step h3 {
+    font-family: var(--font-condensed);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ff-white);
+    margin-bottom: 10px;
+    letter-spacing: 0.04em;
+  }
+  .reg-step p {
+    color: var(--ff-gray);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .reg-step a {
+    color: var(--ff-secondary);
+    text-decoration: underline;
+  }
+  .reg-cta {
+    text-align: center;
+  }
+
+  /* Contact */
+  .contact-section {
+    padding: var(--section-pad) 0;
+  }
+  .contact-inner {
+    max-width: 640px;
+  }
+  .contact-inner h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--ff-white);
+    margin-bottom: 12px;
+  }
+  .contact-inner p {
+    color: var(--ff-gray);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+  .contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px 24px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .contact-card:hover {
+    border-color: var(--ff-primary);
+  }
+  .contact-icon {
+    font-size: 28px;
+  }
+  .contact-type {
+    display: block;
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+    margin-bottom: 4px;
+  }
+  .contact-value {
+    display: block;
+    font-family: var(--font-condensed);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ff-white);
+  }
+
+  @media (max-width: 768px) {
+    .start-banner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .start-icon {
+      font-size: 36px;
+    }
+    .classes-grid,
+    .classes-grid-wide {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

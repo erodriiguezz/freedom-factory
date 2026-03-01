@@ -1,0 +1,794 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const upcomingEvents = [
+  {
+    date: "Mar 4",
+    title: "Cleetus McFarland Driving Experience",
+    venue: "Freedom Factory, Bradenton FL",
+    tickets: true,
+  },
+  {
+    date: "Mar 12–14",
+    title: "Summernats USA",
+    venue: "Freedom Factory, Bradenton FL",
+    tickets: true,
+  },
+  {
+    date: "Mar 27–28",
+    title: "Tour of Destruction",
+    venue: "Freedom Factory, Bradenton FL",
+    tickets: true,
+  },
+  {
+    date: "Apr 10",
+    title: "Freedom 500",
+    venue: "Freedom Factory, Bradenton FL",
+    tickets: true,
+  },
+  {
+    date: "Apr 11",
+    title: "Burnout Rivals",
+    venue: "Freedom Factory, Bradenton FL",
+    tickets: true,
+  },
+  {
+    date: "Apr 18",
+    title: "UARA Sportsman, Pure Stocks & Crown Vics",
+    venue: "Freedom Factory, Bradenton FL",
+    tickets: true,
+  },
+];
+---
+
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <!-- <div class="hero-overlay"></div> -->
+      <!-- <div class="checker-stripe"></div> -->
+
+      <video
+        src="https://video.wixstatic.com/video/ee7d67_42e4e73a18614e889362789485c790fa/720p/mp4/file.mp4"
+        poster="https://static.wixstatic.com/media/ee7d67_42e4e73a18614e889362789485c790faf000.jpg/v1/fill/w_969,h_550,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/ee7d67_42e4e73a18614e889362789485c790faf000.jpg"
+        playsinline
+        autoplay
+        muted
+        loop
+        class="hero-video"></video>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span>🏁</span>
+        <span>Bradenton, FL — 3/8 Mile Oval</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-line-1">Freedom</span>
+        <span class="hero-line-2">Factory</span>
+      </h1>
+
+      <p class="hero-desc">
+        The world's most entertaining race track. Home of Cleetus McFarland.
+        Motorsport, mayhem, and memories — all in Bradenton, Florida.
+      </p>
+
+      <div class="hero-ctas">
+        <a
+          href="https://tickets.thefoat.com/FreedomFactory"
+          class="btn btn-yellow"
+          target="_blank"
+          rel="noopener"
+        >
+          Buy Tickets
+        </a>
+        <a href="/schedule" class="btn btn-secondary"> View Schedule </a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="container hero-stats-inner">
+        <div class="stat">
+          <span class="stat-num">3/8</span>
+          <span class="stat-label">Mile Oval</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">12°</span>
+          <span class="stat-label">Banking</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Events in 2026</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">1970s</span>
+          <span class="stat-label">Built as Desoto Speedway</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events Strip -->
+  <section class="events-strip">
+    <div class="container">
+      <div class="events-header">
+        <div>
+          <div class="section-label">What's Coming Up</div>
+          <h2 class="events-heading">Upcoming Events</h2>
+        </div>
+        <a href="/schedule" class="btn btn-secondary">Full 2026 Schedule →</a>
+      </div>
+      <div class="events-grid">
+        {
+          upcomingEvents.map((e) => (
+            <div class="event-card">
+              <div class="event-date">{e.date}</div>
+              <div class="event-info">
+                <h3 class="event-title">{e.title}</h3>
+                <span class="event-venue">📍 {e.venue}</span>
+              </div>
+              {e.tickets && (
+                <a
+                  href="https://tickets.thefoat.com/FreedomFactory"
+                  class="btn btn-primary event-btn"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Tickets
+                </a>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column feature split -->
+  <section class="feature-split">
+    <div class="feature-block spectators">
+      <div class="feature-content">
+        <div class="section-label">For Fans</div>
+        <h2>Spectator<br />Experience</h2>
+        <p>
+          Get up close to the action. Front-stretch grandstands, infield access,
+          food vendors, and the energy of America's most entertaining track.
+        </p>
+        <ul class="feature-list">
+          <li>✓ Front-stretch grandstand seating</li>
+          <li>✓ Infield access available</li>
+          <li>✓ Food & beverage on-site</li>
+          <li>✓ Family-friendly events</li>
+        </ul>
+        <a
+          href="https://tickets.thefoat.com/FreedomFactory"
+          class="btn btn-yellow"
+          target="_blank"
+          rel="noopener">Get Tickets Now</a
+        >
+      </div>
+    </div>
+    <div class="feature-block competitors">
+      <div class="feature-content">
+        <div class="section-label">For Racers</div>
+        <h2>Competitor<br />Resources</h2>
+        <p>
+          Everything you need to race at Freedom Factory. Class rules,
+          registration forms, tech inspection guidelines, and event-specific
+          entry info.
+        </p>
+        <ul class="feature-list">
+          <li>✓ 11 racing classes with PDF rules</li>
+          <li>✓ Online registration links</li>
+          <li>✓ General safety requirements</li>
+          <li>✓ Event-specific entry info</li>
+        </ul>
+        <a href="/competitors" class="btn btn-secondary">Competitor Hub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Track History -->
+  <section class="track-story">
+    <div class="container track-story-inner">
+      <div class="track-story-text">
+        <div class="section-label">The Track</div>
+        <h2>Racing History<br />Reborn</h2>
+        <p>
+          Constructed in the early 1970s as Desoto Speedway, Freedom Factory's
+          3/8-mile asphalt oval with 12-degree banking quickly became known as
+          the fastest 3/8-mile speedway in the South.
+        </p>
+        <p>
+          After decades of success — and years of silence — the track was given
+          a second life by YouTuber and car enthusiast Cleetus McFarland. We're
+          proud to carry that history forward with every race.
+        </p>
+        <a href="/about" class="btn btn-secondary">Full History →</a>
+      </div>
+      <div class="track-story-visual">
+        <div class="track-diagram">
+          <svg
+            viewBox="0 0 400 280"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Track oval shape -->
+            <ellipse
+              cx="200"
+              cy="140"
+              rx="170"
+              ry="110"
+              stroke="#e8192c"
+              stroke-width="24"
+              fill="none"
+              opacity="0.2"></ellipse>
+            <ellipse
+              cx="200"
+              cy="140"
+              rx="170"
+              ry="110"
+              stroke="#e8192c"
+              stroke-width="3"
+              fill="none"></ellipse>
+            <!-- Inner grass -->
+            <ellipse
+              cx="200"
+              cy="140"
+              rx="146"
+              ry="86"
+              fill="#1a2a1a"
+              opacity="0.5"></ellipse>
+            <!-- Start/finish line -->
+            <line
+              x1="200"
+              y1="30"
+              x2="200"
+              y2="54"
+              stroke="#f5c518"
+              stroke-width="4"></line>
+            <text
+              x="210"
+              y="48"
+              fill="#f5c518"
+              font-size="11"
+              font-family="Bebas Neue, sans-serif"
+              letter-spacing="1">S/F LINE</text
+            >
+            <!-- Grandstands label -->
+            <text
+              x="170"
+              y="270"
+              fill="#888"
+              font-size="10"
+              font-family="Barlow Condensed, sans-serif"
+              letter-spacing="2">FRONT STRETCH GRANDSTANDS</text
+            >
+            <!-- Banking note -->
+            <text
+              x="8"
+              y="140"
+              fill="#888"
+              font-size="10"
+              font-family="Barlow Condensed, sans-serif"
+              letter-spacing="1"
+              transform="rotate(-90, 8, 140)">12° BANKING</text
+            >
+            <!-- Compass / track label -->
+            <text
+              x="172"
+              y="146"
+              fill="#e8192c"
+              font-size="22"
+              font-family="Bebas Neue, sans-serif"
+              letter-spacing="2">3/8 MI</text
+            >
+          </svg>
+        </div>
+        <div class="track-facts">
+          <div class="track-fact">
+            <span class="fact-label">Surface</span>
+            <span class="fact-val">Asphalt</span>
+          </div>
+          <div class="track-fact">
+            <span class="fact-label">Location</span>
+            <span class="fact-val">Bradenton, FL</span>
+          </div>
+          <div class="track-fact">
+            <span class="fact-label">Owner</span>
+            <span class="fact-val">Cleetus McFarland</span>
+          </div>
+          <div class="track-fact">
+            <span class="fact-label">Originally Built</span>
+            <span class="fact-val">Early 1970s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Experience CTA -->
+  <section class="driving-exp-cta">
+    <div class="container">
+      <div class="driving-exp-inner">
+        <div>
+          <div class="section-label">Featured Event</div>
+          <h2>Cleetus McFarland<br />Driving Experience</h2>
+          <p>
+            Ever want to drive a real race car? Multiple experiences available
+            throughout 2026 — lapping sessions, hot laps, and more.
+          </p>
+        </div>
+        <div class="driving-exp-dates">
+          <div class="exp-date-item">March 4, 2026</div>
+          <div class="exp-date-item">April 23, 2026</div>
+          <div class="exp-date-item">May 14, 2026</div>
+          <div class="exp-date-item">September 3, 2026</div>
+          <a href="/events" class="btn btn-yellow">Learn More & Register →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: -100px;
+    padding-top: 100px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: href(
+      "https://video.wixstatic.com/video/ee7d67_42e4e73a18614e889362789485c790fa/720p/mp4/file.mp4"
+    );
+    /* background:
+      radial-gradient(
+        ellipse at 60% 50%,
+        rgba(232, 25, 44, 0.12) 0%,
+        transparent 60%
+      ),
+      linear-gradient(to bottom, #0a0a0a 0%, #111 100%); */
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent 0px,
+      transparent 40px,
+      rgba(255, 255, 255, 0.012) 40px,
+      rgba(255, 255, 255, 0.012) 41px
+    );
+  }
+  .checker-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--ff-checker);
+  }
+
+  .hero-video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ff-dark-3);
+    border: 1px solid #333;
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--ff-gray);
+    margin-bottom: 24px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+  .hero-line-1 {
+    font-size: clamp(80px, 14vw, 180px);
+    /* color: var(--ff-white); */
+    animation: fadeUp 0.6s 0.1s ease both;
+
+    /* background: linear-gradient(
+      to right,
+      #b31942 0%,
+      #b31942 33%,
+      #b31942 66%,
+      #ffffff 66%,
+      #ffffff 100%
+    ); */
+    background: linear-gradient(
+      to right,
+      #b31942 0%,
+      #b31942 33%,
+      #ffffff 33%,
+      #ffffff 66%,
+      #0a3161 66%,
+      #0a3161 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-line-2 {
+    font-size: clamp(80px, 14vw, 180px);
+    /* color: var(--ff-secondary); */
+    color: var(--ff-white);
+    /* color: #0a3161; */
+    margin-top: -10px;
+    animation: fadeUp 0.6s 0.2s ease both;
+
+    /* background: linear-gradient(
+      to right,
+      #b31942 0%,
+      #b31942 33%,
+      #ffffff 33%,
+      #ffffff 66%,
+      #0a3161 66%,
+      #0a3161 100%
+    ); */
+    /* background: linear-gradient(
+      to right,
+      #ffffff 0%,
+      #ffffff 33%,
+      #ffffff 66%,
+      #0a3161 66%,
+      #0a3161 100%
+    ); */
+    /* -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; */
+  }
+  .hero-line-3 {
+    font-size: clamp(48px, 8vw, 100px);
+    color: var(--ff-secondary);
+    letter-spacing: 0.3em;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-desc {
+    font-size: clamp(20px, 2vw, 18px);
+    /* color: var(--ff-gray); */
+    color: var(--ff-white);
+    max-width: 520px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+
+  .hero-stats {
+    position: relative;
+    z-index: 1;
+    background: var(--ff-dark-2);
+    border-top: 1px solid #222;
+    margin-top: auto;
+  }
+  .hero-stats-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 28px clamp(16px, 4vw, 48px);
+    overflow-x: auto;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 120px;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--ff-secondary);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+    margin-top: 4px;
+  }
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: #333;
+    flex-shrink: 0;
+    margin: 0 24px;
+  }
+
+  /* EVENTS STRIP */
+  .events-strip {
+    padding: var(--section-pad) 0;
+  }
+  .events-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .events-heading {
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--ff-white);
+  }
+  .events-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .event-card {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    background: var(--ff-dark-2);
+    border: 1px solid #222;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
+  }
+  .event-card:hover {
+    border-color: var(--ff-primary);
+    background: var(--ff-dark-3);
+  }
+  .event-date {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--ff-secondary);
+    white-space: nowrap;
+  }
+  .event-title {
+    font-family: var(--font-condensed);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ff-white);
+    margin-bottom: 4px;
+  }
+  .event-venue {
+    font-size: 13px;
+    color: var(--ff-gray);
+    font-family: var(--font-condensed);
+  }
+  .event-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  /* FEATURE SPLIT */
+  .feature-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+  .feature-block {
+    position: relative;
+    padding: var(--section-pad) clamp(32px, 5vw, 64px);
+    display: flex;
+    align-items: center;
+  }
+  .feature-block.spectators {
+    background: linear-gradient(135deg, #0d0d1a 0%, #0a0a0a 100%);
+    border-right: 1px solid #222;
+  }
+  .feature-block.competitors {
+    background: linear-gradient(135deg, #0d0d1a 0%, #0a0a0a 100%);
+  }
+  .feature-content h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--ff-white);
+    margin-bottom: 16px;
+  }
+  .feature-content p {
+    color: var(--ff-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 380px;
+  }
+  .feature-list {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+  .feature-list li {
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    color: var(--ff-light-gray);
+    letter-spacing: 0.04em;
+    padding: 4px 0;
+  }
+
+  /* TRACK STORY */
+  .track-story {
+    padding: var(--section-pad) 0;
+    background: var(--ff-dark-2);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+  }
+  .track-story-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .track-story-text h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--ff-white);
+    margin-bottom: 20px;
+  }
+  .track-story-text p {
+    color: var(--ff-gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+  .track-story-text .btn {
+    margin-top: 12px;
+  }
+
+  .track-diagram {
+    background: var(--ff-dark-3);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .track-diagram svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .track-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .track-fact {
+    background: var(--ff-dark-3);
+    border: 1px solid #333;
+    border-radius: var(--radius);
+    padding: 12px 16px;
+  }
+  .fact-label {
+    display: block;
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+    margin-bottom: 4px;
+  }
+  .fact-val {
+    display: block;
+    font-family: var(--font-condensed);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ff-white);
+  }
+
+  /* DRIVING EXPERIENCE CTA */
+  .driving-exp-cta {
+    padding: var(--section-pad) 0;
+  }
+  .driving-exp-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    background: linear-gradient(
+      135deg,
+      var(--ff-dark-2) 0%,
+      var(--ff-dark-3) 100%
+    );
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 48px;
+  }
+  .driving-exp-inner h2 {
+    font-size: clamp(40px, 4vw, 56px);
+    color: var(--ff-white);
+    margin-bottom: 16px;
+  }
+  .driving-exp-inner p {
+    color: var(--ff-gray);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .driving-exp-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .exp-date-item {
+    background: var(--ff-dark);
+    border: 1px solid #333;
+    border-left: 3px solid var(--ff-primary);
+    padding: 12px 16px;
+    font-family: var(--font-condensed);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ff-white);
+    letter-spacing: 0.05em;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .feature-split {
+      grid-template-columns: 1fr;
+    }
+    .feature-block.spectators {
+      border-right: none;
+      border-bottom: 1px solid #222;
+    }
+    .track-story-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .driving-exp-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 32px 24px;
+    }
+    .event-card {
+      grid-template-columns: 80px 1fr;
+    }
+    .event-btn {
+      display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    .hero-stats-inner {
+      gap: 0;
+      justify-content: space-between;
+    }
+    .stat-divider {
+      margin: 0 12px;
+    }
+  }
+</style>

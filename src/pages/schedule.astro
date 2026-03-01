@@ -1,0 +1,501 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const schedule = [
+  {
+    date: "Feb 21",
+    title: "The Florida Man Games",
+    venue: "FF",
+    month: "February",
+  },
+  {
+    date: "Mar 4",
+    title: "Cleetus McFarland Driving Experience",
+    venue: "FF",
+    month: "March",
+    tickets: true,
+  },
+  {
+    date: "Mar 12–14",
+    title: "Summernats USA",
+    venue: "FF",
+    month: "March",
+    tickets: true,
+  },
+  {
+    date: "Mar 27",
+    title: "Tour of Destruction",
+    venue: "FF",
+    month: "March",
+    tickets: true,
+  },
+  {
+    date: "Mar 28",
+    title: "Tour of Destruction",
+    venue: "FF",
+    month: "March",
+    tickets: true,
+  },
+  {
+    date: "Apr 10",
+    title: "Freedom 500",
+    venue: "FF",
+    month: "April",
+    tickets: true,
+  },
+  {
+    date: "Apr 11",
+    title: "Burnout Rivals",
+    venue: "FF",
+    month: "April",
+    tickets: true,
+  },
+  {
+    date: "Apr 18",
+    title: "UARA Sportsman, Pure Stocks & Crown Vics",
+    venue: "FF",
+    month: "April",
+    tickets: true,
+  },
+  {
+    date: "Apr 23",
+    title: "Cleetus McFarland Driving Experience",
+    venue: "FF",
+    month: "April",
+    tickets: true,
+  },
+  {
+    date: "May 1",
+    title: "Indy 800",
+    venue: "IRP",
+    month: "May",
+    tickets: true,
+  },
+  {
+    date: "May 2",
+    title: "Burnout Rivals",
+    venue: "IRP",
+    month: "May",
+    tickets: true,
+  },
+  { date: "May 9", title: "Mom Prix", venue: "Live Stream Only", month: "May" },
+  {
+    date: "May 14",
+    title: "Cleetus McFarland Driving Experience",
+    venue: "FF",
+    month: "May",
+    tickets: true,
+  },
+  { date: "May 16", title: "Freedom Cars & Coffee", venue: "FF", month: "May" },
+  {
+    date: "Jun 20",
+    title: "Freedom Cars & Coffee",
+    venue: "FF",
+    month: "June",
+  },
+  {
+    date: "Jul 17",
+    title: "New England 900",
+    venue: "SMS",
+    month: "July",
+    tickets: true,
+  },
+  {
+    date: "Jul 18",
+    title: "Burnout Rivals",
+    venue: "SMS",
+    month: "July",
+    tickets: true,
+  },
+  {
+    date: "Jul 31–Aug 1",
+    title: "RACE – Racer and Creator Expo",
+    venue: "BACC",
+    month: "July",
+    tickets: true,
+  },
+  {
+    date: "Aug 14",
+    title: "Michigan 100",
+    venue: "BR",
+    month: "August",
+    tickets: true,
+  },
+  {
+    date: "Aug 15",
+    title: "Burnout Rivals",
+    venue: "BR",
+    month: "August",
+    tickets: true,
+  },
+  {
+    date: "Sep 3",
+    title: "Cleetus McFarland Driving Experience",
+    venue: "FF",
+    month: "September",
+    tickets: true,
+  },
+  {
+    date: "Oct 1–4",
+    title: "FL2K",
+    venue: "BMP",
+    month: "October",
+    tickets: true,
+  },
+  {
+    date: "Oct 10",
+    title: "Danger Ranger 9000, Altima 600 & Pro Trucks",
+    venue: "FF",
+    month: "October",
+    tickets: true,
+  },
+  {
+    date: "Oct 17",
+    title: "UARA Classes TBD",
+    venue: "FF",
+    month: "October",
+    tickets: true,
+  },
+  {
+    date: "Oct 30",
+    title: "Tour of Destruction",
+    venue: "FF",
+    month: "October",
+    tickets: true,
+  },
+  {
+    date: "Oct 31",
+    title: "Tour of Destruction",
+    venue: "FF",
+    month: "October",
+    tickets: true,
+  },
+  {
+    date: "Nov 13",
+    title: "2.4 Hrs of LeMullets",
+    venue: "FF",
+    month: "November",
+    tickets: true,
+  },
+  {
+    date: "Nov 14",
+    title: "Burnout Rivals",
+    venue: "FF",
+    month: "November",
+    tickets: true,
+  },
+  {
+    date: "Nov 18–19",
+    title: "Cleetus McFarland Driving Experience",
+    venue: "FF",
+    month: "November",
+    tickets: true,
+  },
+  {
+    date: "Nov 21",
+    title: "Freedom Cars & Coffee",
+    venue: "FF",
+    month: "November",
+  },
+  {
+    date: "Nov 28",
+    title: "The Bigley 128, UARA Super Late Models & Sportsman",
+    venue: "FF",
+    month: "November",
+    tickets: true,
+  },
+  {
+    date: "Dec 4–26",
+    title: "Bradenton Holiday Lights Festival",
+    venue: "FF",
+    month: "December",
+    tickets: true,
+  },
+  {
+    date: "Dec 19",
+    title: "Christmas Tree Drags",
+    venue: "BMP",
+    month: "December",
+    tickets: true,
+  },
+];
+
+const venueKeys: Record<string, string> = {
+  FF: "Freedom Factory, Bradenton FL",
+  BMP: "Bradenton Motorsports Park, Bradenton FL",
+  IRP: "Lucas Oil Raceway Park, Indianapolis IN",
+  SMS: "Stafford Motor Speedway, Stafford Springs CT",
+  BR: "Berlin Raceway, Marne MI",
+  BACC: "Bradenton Area Convention Center",
+};
+
+const months = [...new Set(schedule.map((e) => e.month))];
+---
+
+<Layout
+  title="2026 Schedule"
+  description="Full 2026 Freedom Factory USA event schedule. Racing, burnout competitions, driving experiences, and more."
+>
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">Events</div>
+      <h1>2026 Schedule</h1>
+      <p>
+        All Freedom Factory USA events for the 2026 season. Subject to change —
+        check back often.
+      </p>
+    </div>
+  </div>
+
+  <section class="schedule-section">
+    <div class="container">
+      <div class="venue-legend">
+        <h3>Venue Key</h3>
+        <div class="legend-grid">
+          {
+            Object.entries(venueKeys).map(([key, val]) => (
+              <div class="legend-item">
+                <span class="legend-key">{key}</span>
+                <span class="legend-val">{val}</span>
+              </div>
+            ))
+          }
+        </div>
+        <p class="schedule-note">⚠️ Schedule Subject To Change</p>
+      </div>
+
+      {
+        months.map((month) => {
+          const monthEvents = schedule.filter((e) => e.month === month);
+          return (
+            <div class="month-block">
+              <div class="month-header">
+                <h2 class="month-title">{month}</h2>
+                <span class="month-count">
+                  {monthEvents.length} event
+                  {monthEvents.length !== 1 ? "s" : ""}
+                </span>
+              </div>
+              <div class="month-events">
+                {monthEvents.map((event) => (
+                  <div class="sched-row">
+                    <div class="sched-date">{event.date}</div>
+                    <div class="sched-info">
+                      <span class="sched-title">{event.title}</span>
+                      <span class="sched-venue">
+                        {venueKeys[event.venue] ?? event.venue}
+                      </span>
+                    </div>
+                    <div class="sched-badge-wrap">
+                      <span
+                        class={`venue-badge venue-${event.venue.toLowerCase()}`}
+                      >
+                        {event.venue}
+                      </span>
+                    </div>
+                    {event.tickets ? (
+                      <a
+                        href="https://tickets.thefoat.com/FreedomFactory"
+                        class="btn btn-primary sched-btn"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        Tickets
+                      </a>
+                    ) : (
+                      <span class="sched-btn-placeholder" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(to bottom, var(--ff-dark-2), var(--ff-black));
+    border-bottom: 1px solid #222;
+    padding: 64px 0 48px;
+  }
+  .page-hero h1 {
+    font-size: clamp(56px, 8vw, 100px);
+    color: var(--ff-white);
+    margin-bottom: 12px;
+  }
+  .page-hero p {
+    color: var(--ff-gray);
+    font-size: 16px;
+    max-width: 480px;
+  }
+
+  .schedule-section {
+    padding: 60px 0;
+  }
+
+  .venue-legend {
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 48px;
+  }
+  .venue-legend h3 {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ff-secondary);
+    margin-bottom: 16px;
+  }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .legend-key {
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--ff-primary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 2px;
+    min-width: 44px;
+    text-align: center;
+  }
+  .legend-val {
+    font-size: 13px;
+    color: var(--ff-gray);
+    font-family: var(--font-condensed);
+  }
+  .schedule-note {
+    font-size: 13px;
+    color: var(--ff-secondary);
+    font-family: var(--font-condensed);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .month-block {
+    margin-bottom: 48px;
+  }
+  .month-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--ff-primary);
+  }
+  .month-title {
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--ff-white);
+  }
+  .month-count {
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+  }
+
+  .month-events {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .sched-row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto auto;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background: var(--ff-dark-2);
+    border: 1px solid #222;
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+  }
+  .sched-row:hover {
+    border-color: #444;
+  }
+
+  .sched-date {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--ff-secondary);
+    white-space: nowrap;
+  }
+  .sched-title {
+    display: block;
+    font-family: var(--font-condensed);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ff-white);
+    margin-bottom: 3px;
+  }
+  .sched-venue {
+    font-size: 12px;
+    color: var(--ff-gray);
+    font-family: var(--font-condensed);
+    letter-spacing: 0.05em;
+  }
+  .sched-badge-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .venue-badge {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 2px;
+    background: var(--ff-dark-3);
+    color: var(--ff-gray);
+    border: 1px solid #333;
+  }
+  .venue-badge.venue-ff {
+    background: rgba(232, 25, 44, 0.15);
+    color: var(--ff-primary);
+    border-color: rgba(232, 25, 44, 0.3);
+  }
+  .venue-badge.venue-bmp {
+    background: rgba(245, 197, 24, 0.1);
+    color: var(--ff-secondary);
+    border-color: rgba(245, 197, 24, 0.2);
+  }
+
+  .sched-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    min-width: 80px;
+    text-align: center;
+  }
+  .sched-btn-placeholder {
+    min-width: 80px;
+  }
+
+  @media (max-width: 700px) {
+    .sched-row {
+      grid-template-columns: 70px 1fr;
+    }
+    .sched-badge-wrap,
+    .sched-btn,
+    .sched-btn-placeholder {
+      display: none;
+    }
+  }
+</style>

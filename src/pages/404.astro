@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Page Not Found">
+  <div class="not-found">
+    <div class="container">
+      <div class="nf-inner">
+        <div class="nf-num">404</div>
+        <h1>Yellow Flag</h1>
+        <p>You went off the racing line. This page doesn't exist.</p>
+        <div class="nf-ctas">
+          <a href="/" class="btn btn-yellow">Back to Home</a>
+          <a href="/schedule" class="btn btn-secondary">View Schedule</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.not-found {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: var(--section-pad) 0;
+}
+.nf-inner { text-align: center; }
+.nf-num {
+  font-family: var(--font-display);
+  font-size: clamp(120px, 20vw, 240px);
+  color: rgba(232,25,44,0.2);
+  line-height: 1;
+  margin-bottom: -20px;
+}
+h1 {
+  font-size: clamp(48px, 6vw, 80px);
+  color: var(--ff-white);
+  margin-bottom: 16px;
+}
+p {
+  color: var(--ff-gray);
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+.nf-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+</style>

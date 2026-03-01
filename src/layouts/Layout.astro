@@ -1,0 +1,501 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Freedom Factory USA — Bradenton, FL. Home of Cleetus McFarland's legendary race track. Events, tickets, racing classes, and competitor info.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | Freedom Factory | Bradenton, FL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="icon" type="image/svg+xml" href="/logo.avif" />
+  </head>
+  <body>
+    <!-- Top announcement bar -->
+    <div class="announce-bar">
+      <div class="container">
+        <span>🏁 2026 Season is HERE — </span>
+        <a href="/schedule">View Full Schedule</a>
+        <span class="pipe">|</span>
+        <a
+          href="https://tickets.thefoat.com/FreedomFactory"
+          target="_blank"
+          rel="noopener">Buy Tickets →</a
+        >
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a href="/" class="logo" aria-label="Freedom Factory Home">
+          <img
+            src="/public/logo.avif"
+            alt="Freedom Factory Logo"
+            style="height: 75px;"
+          />
+          <!-- <span class="logo-ff">FF</span>
+          <div class="logo-text">
+            <span class="logo-main">Freedom Factory</span>
+            <span class="logo-sub">Bradenton, FL</span>
+          </div> -->
+        </a>
+
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/schedule" class="nav-link">Schedule</a>
+          <a href="/events" class="nav-link">Events</a>
+          <a href="/competitors" class="nav-link">Competitors</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-cta">
+          <a
+            href="https://tickets.thefoat.com/FreedomFactory"
+            class="btn btn-yellow"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Tickets
+          </a>
+        </div>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="checker-bar"></div>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img
+              src="/public/logo.avif"
+              alt="Freedom Factory Logo"
+              style="height: 150px;"
+            />
+          </div>
+          <p>
+            The world-famous 3/8-mile oval in Bradenton, FL. Home of Cleetus
+            McFarland. Racing history reborn.
+          </p>
+          <div class="social-links">
+            <a
+              href="https://www.youtube.com/c/SPOCARVideos"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"
+                ></path></svg
+              >
+            </a>
+            <a
+              href="https://www.facebook.com/FreedomFactory1"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.3h3.4l-.5 3.5h-2.8v8.4C19.6 23 24 18.1 24 12.1z"
+                ></path></svg
+              >
+            </a>
+            <a
+              href="https://www.instagram.com/freedom.factoryusa/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                ><path
+                  d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.2 4.8 1.7 5 5 .1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.2 3.3-1.7 4.9-5 5-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.2-4.9-1.7-5-5C2.1 15.6 2 15.3 2 12s0-3.6.1-4.8c.2-3.3 1.7-4.9 5-5C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"
+                ></path></svg
+              >
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <a href="/">Home</a>
+            <a href="/schedule">2026 Schedule</a>
+            <a href="/events">Events</a>
+            <a href="/about">About the Track</a>
+            <a href="/contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Competitors</h4>
+            <a href="/competitors">Rules & Classes</a>
+            <a href="/competitors#registration">Registration</a>
+            <a href="/competitors#crown-vic">Crown Vic</a>
+            <a href="/competitors#burnout-rivals">Burnout Rivals</a>
+            <a href="/competitors#super-late">Super Late Models</a>
+            <a href="/competitors#pure-stock">Pure Stock</a>
+          </div>
+          <div class="footer-col">
+            <h4>Venue</h4>
+            <p>21050 FL-64<br />Bradenton, FL 34212</p>
+            <a href="mailto:events@fffl.com">events@fffl.com</a>
+            <a
+              href="https://tickets.thefoat.com/FreedomFactory"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-yellow"
+              style="margin-top:12px; display:inline-flex;">Get Tickets</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <span
+            >© {new Date().getFullYear()} Freedom Factory LLC. All Rights Reserved.</span
+          >
+          <span>Built with ❤️ for racing</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu
+      const btn = document.getElementById("mobile-menu-btn");
+      const nav = document.getElementById("main-nav");
+      btn?.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+        nav?.classList.toggle("open");
+      });
+
+      // Sticky header scroll effect
+      const header = document.getElementById("site-header");
+      window.addEventListener("scroll", () => {
+        header?.classList.toggle("scrolled", window.scrollY > 60);
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Announce Bar */
+  .announce-bar {
+    background: var(--ff-primary);
+    padding: 12px 0;
+    text-align: center;
+    font-family: var(--font-condensed);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--ff-white);
+  }
+  .announce-bar a {
+    color: var(--ff-white);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .announce-bar .pipe {
+    margin: 0 12px;
+    opacity: 0.5;
+  }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* background: var(--ff-black); */
+    /* border-bottom: 1px solid #222; */
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    transition: box-shadow 0.3s;
+  }
+  .site-header.scrolled {
+    /* box-shadow: 0 4px 32px rgba(0, 0, 0, 0.8); */
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    gap: 32px;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo-ff {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--ff-primary);
+    background: var(--ff-dark-2);
+    border: 2px solid var(--ff-primary);
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    letter-spacing: 0;
+    flex-shrink: 0;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .logo-main {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--ff-white);
+    letter-spacing: 0.05em;
+  }
+  .logo-sub {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+  }
+
+  /* Nav */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+  }
+  .nav-link {
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ff-light-gray);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    transition:
+      color 0.2s,
+      background 0.2s;
+  }
+  .nav-link:hover,
+  .nav-link[aria-current="page"] {
+    color: var(--ff-white);
+    background: var(--ff-dark-3);
+  }
+
+  .header-cta {
+    flex-shrink: 0;
+  }
+
+  /* Mobile menu */
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+  }
+  .mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ff-white);
+    transition: 0.3s;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--ff-dark);
+    border-top: 1px solid #222;
+    margin-top: 80px;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 64px;
+    padding: 64px clamp(16px, 4vw, 48px);
+  }
+  .footer-brand p {
+    color: var(--ff-gray);
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 16px 0 24px;
+    max-width: 280px;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-logo .logo-ff {
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+  }
+  .footer-logo .logo-main {
+    font-size: 18px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 12px;
+  }
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--ff-dark-3);
+    border-radius: var(--radius);
+    color: var(--ff-gray);
+    text-decoration: none;
+    transition:
+      color 0.2s,
+      background 0.2s;
+  }
+  .social-links a:hover {
+    color: var(--ff-white);
+    background: var(--ff-primary);
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .footer-col h4 {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ff-secondary);
+    margin-bottom: 16px;
+  }
+  .footer-col a,
+  .footer-col p {
+    display: block;
+    color: var(--ff-gray);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover {
+    color: var(--ff-white);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #222;
+    padding: 20px clamp(16px, 4vw, 48px);
+  }
+  .footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--ff-gray);
+    font-family: var(--font-condensed);
+  }
+
+  @media (max-width: 900px) {
+    .header-cta {
+      display: none;
+    }
+    .main-nav {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--ff-black);
+      border-bottom: 1px solid #333;
+      flex-direction: column;
+      padding: 16px;
+      gap: 4px;
+      z-index: 99;
+    }
+    .main-nav.open {
+      display: flex;
+    }
+    .nav-link {
+      width: 100%;
+      text-align: left;
+      font-size: 16px;
+    }
+    .mobile-menu-btn {
+      display: flex;
+    }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .footer-links {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+    .footer-bottom .container {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+  }
+</style>

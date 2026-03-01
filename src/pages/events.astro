@@ -1,0 +1,290 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const events = [
+  {
+    title: "Cleetus McFarland Driving Experience",
+    slug: "cmde",
+    description:
+      "Always dreamed of driving a real race car on a real track? The Cleetus McFarland Driving Experience puts you behind the wheel at Freedom Factory. Multiple sessions available throughout 2026.",
+    category: "Experience",
+    dates: ["March 4", "April 23", "May 14", "September 3", "November 18–19"],
+    icon: "🏎",
+    tickets: true,
+  },
+  {
+    title: "Tour of Destruction",
+    slug: "tour-of-destruction",
+    description:
+      "Demolition derby meets flat-out racing. Cars get destroyed, crowds go wild, and nobody leaves disappointed. One of the most popular events on the calendar.",
+    category: "Destruction",
+    dates: ["March 27–28", "October 30–31"],
+    icon: "💥",
+    tickets: true,
+  },
+  {
+    title: "Burnout Rivals",
+    slug: "burnout-rivals",
+    description:
+      "Judged on smoke, duration, style, and pure tire-obliterating spectacle. Burnout Rivals is the event that fans talk about all year long.",
+    category: "Special Event",
+    dates: [
+      "April 11",
+      "May 2 (IRP)",
+      "July 18 (SMS)",
+      "August 15 (BR)",
+      "November 14",
+    ],
+    icon: "💨",
+    tickets: true,
+  },
+  {
+    title: "Freedom 500",
+    slug: "freedom-500",
+    description:
+      "The marquee race of the Freedom Factory season. Massive field, massive prize money, and the most competitive short track racing you'll see outside of NASCAR.",
+    category: "Feature Race",
+    dates: ["April 10"],
+    icon: "🏁",
+    tickets: true,
+  },
+  {
+    title: "Summernats USA",
+    slug: "summernats",
+    description:
+      "The iconic Australian car festival comes to Florida! Custom cars, burnout competitions, show & shine, and non-stop automotive entertainment across the entire Freedom Factory complex.",
+    category: "Festival",
+    dates: ["March 12–14"],
+    icon: "🚗",
+    tickets: true,
+  },
+  {
+    title: "UARA Racing",
+    slug: "uara",
+    description:
+      "United Auto Racing Association events bring Sportsman, Super Late Models, Pure Stocks, and Crown Vic classes together for top short-track oval competition.",
+    category: "Circle Track",
+    dates: ["April 18", "October 17", "November 28"],
+    icon: "🔵",
+    tickets: true,
+  },
+  {
+    title: "Freedom Cars & Coffee",
+    slug: "cars-and-coffee",
+    description:
+      "A more relaxed side of Freedom Factory. Show up, show off your ride, and enjoy community-focused automotive culture with zero pressure.",
+    category: "Community",
+    dates: ["May 16", "June 20", "November 21"],
+    icon: "☕",
+    tickets: false,
+  },
+  {
+    title: "Bradenton Holiday Lights Festival",
+    slug: "lights-festival",
+    description:
+      "The Freedom Factory transforms into a winter wonderland. Drive-through light displays, family activities, and seasonal entertainment throughout December.",
+    category: "Family",
+    dates: ["December 4–26"],
+    icon: "🎄",
+    tickets: true,
+  },
+  {
+    title: "2.4 Hours of LeMullets",
+    slug: "lemullets",
+    description:
+      "Endurance racing on a budget. Team up, find the worst car you can, and race it for 2.4 glorious hours. Pure Freedom Factory energy.",
+    category: "Endurance",
+    dates: ["November 13"],
+    icon: "⏱",
+    tickets: true,
+  },
+  {
+    title: "RACE – Racer and Creator Expo",
+    slug: "race-expo",
+    description:
+      "Where racing meets content creation. Meet your favorite motorsports creators, see show cars, watch live activations — the event for the YouTube racing community.",
+    category: "Expo",
+    dates: ["July 31–August 1 (BACC)"],
+    icon: "🎬",
+    tickets: true,
+  },
+];
+---
+
+<Layout
+  title="Events"
+  description="Browse all Freedom Factory USA events — driving experiences, demolition derbies, burnout competitions, and more."
+>
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">What's Happening</div>
+      <h1>Events</h1>
+      <p>
+        From flat-out oval racing to all-out destruction derbies, there's always
+        something wild happening at Freedom Factory.
+      </p>
+    </div>
+  </div>
+
+  <section class="events-section">
+    <div class="container">
+      <div class="events-grid">
+        {
+          events.map((event) => (
+            <div class="event-feature-card">
+              <div class="efcard-top">
+                <span class="efcard-icon">{event.icon}</span>
+                <span class="efcard-category">{event.category}</span>
+              </div>
+              <h2 class="efcard-title">{event.title}</h2>
+              <p class="efcard-desc">{event.description}</p>
+              <div class="efcard-dates">
+                <span class="dates-label">2026 Dates</span>
+                <ul>
+                  {event.dates.map((d) => (
+                    <li>{d}</li>
+                  ))}
+                </ul>
+              </div>
+              {event.tickets && (
+                <a
+                  href="https://tickets.thefoat.com/FreedomFactory"
+                  class="btn btn-primary efcard-btn"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Get Tickets →
+                </a>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(to bottom, var(--ff-dark-2), var(--ff-black));
+    border-bottom: 1px solid #222;
+    padding: 64px 0 48px;
+  }
+  .page-hero h1 {
+    font-size: clamp(56px, 8vw, 100px);
+    color: var(--ff-white);
+    margin-bottom: 12px;
+  }
+  .page-hero p {
+    color: var(--ff-gray);
+    font-size: 16px;
+    max-width: 540px;
+  }
+
+  .events-section {
+    padding: var(--section-pad) 0;
+  }
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+
+  .event-feature-card {
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
+  }
+  .event-feature-card:hover {
+    border-color: var(--ff-primary);
+    transform: translateY(-2px);
+  }
+
+  .efcard-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .efcard-icon {
+    font-size: 36px;
+  }
+  .efcard-category {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ff-secondary);
+    background: rgba(245, 197, 24, 0.1);
+    border: 1px solid rgba(245, 197, 24, 0.2);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .efcard-title {
+    font-size: clamp(20px, 2.5vw, 26px);
+    color: var(--ff-white);
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+  .efcard-desc {
+    color: var(--ff-gray);
+    font-size: 14px;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .efcard-dates {
+    background: var(--ff-dark-3);
+    border: 1px solid #333;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .dates-label {
+    display: block;
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+    margin-bottom: 8px;
+  }
+  .efcard-dates ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .efcard-dates li {
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ff-white);
+    background: var(--ff-dark-2);
+    border: 1px solid #444;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .efcard-btn {
+    align-self: flex-start;
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 600px) {
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

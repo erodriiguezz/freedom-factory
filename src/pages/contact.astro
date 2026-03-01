@@ -1,0 +1,282 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact"
+  description="Contact Freedom Factory USA — events, competitor inquiries, media, and general questions."
+>
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">Get In Touch</div>
+      <h1>Contact Us</h1>
+      <p>
+        Questions about events, racing, tickets, or media inquiries? We'd love
+        to hear from you.
+      </p>
+    </div>
+  </div>
+
+  <section class="contact-section">
+    <div class="container contact-inner">
+      <div class="contact-form-area">
+        <h2>Send a Message</h2>
+        <form
+          class="contact-form"
+          action="mailto:events@fffl.com"
+          method="get"
+          enctype="text/plain"
+        >
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="First & Last Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select a topic…</option>
+              <option value="Tickets & Events">Tickets & Events</option>
+              <option value="Competitor / Racing Inquiry"
+                >Competitor / Racing Inquiry</option
+              >
+              <option value="Driving Experience">Driving Experience</option>
+              <option value="Media / Press">Media / Press</option>
+              <option value="Sponsorship">Sponsorship</option>
+              <option value="General Question">General Question</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="body"
+              rows="6"
+              placeholder="How can we help you?"
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-yellow">Send Message →</button>
+          <p class="form-note">
+            This will open your default email client. You can also email us
+            directly at <a href="mailto:events@fffl.com">events@fffl.com</a>.
+          </p>
+        </form>
+      </div>
+
+      <aside class="contact-info">
+        <div class="info-card">
+          <h3>📍 Venue Address</h3>
+          <p>21050 FL-64<br />Bradenton, FL 34212</p>
+          <a
+            href="https://maps.google.com/?q=21050+FL-64,+Bradenton,+FL+34212"
+            class="btn btn-secondary"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Directions →
+          </a>
+        </div>
+        <div class="info-card">
+          <h3>✉️ Email</h3>
+          <a href="mailto:events@fffl.com" class="big-link">events@fffl.com</a>
+          <p>Best for event, competitor, and media inquiries.</p>
+        </div>
+        <div class="info-card">
+          <h3>🎟 Tickets</h3>
+          <p>Purchase tickets for all upcoming events online.</p>
+          <a
+            href="https://tickets.thefoat.com/FreedomFactory"
+            class="btn btn-yellow"
+            target="_blank"
+            rel="noopener">Buy Tickets →</a
+          >
+        </div>
+        <div class="info-card">
+          <h3>📱 Follow Us</h3>
+          <div class="social-stack">
+            <a
+              href="https://www.youtube.com/c/SPOCARVideos"
+              target="_blank"
+              rel="noopener">YouTube</a
+            >
+            <a
+              href="https://www.facebook.com/FreedomFactory1"
+              target="_blank"
+              rel="noopener">Facebook</a
+            >
+            <a
+              href="https://www.instagram.com/freedom.factoryusa/"
+              target="_blank"
+              rel="noopener">Instagram</a
+            >
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(to bottom, var(--ff-dark-2), var(--ff-black));
+    border-bottom: 1px solid #222;
+    padding: 64px 0 48px;
+  }
+  .page-hero h1 {
+    font-size: clamp(56px, 8vw, 100px);
+    color: var(--ff-white);
+    margin-bottom: 12px;
+  }
+  .page-hero p {
+    color: var(--ff-gray);
+    font-size: 16px;
+    max-width: 480px;
+  }
+
+  .contact-section {
+    padding: var(--section-pad) 0;
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-form-area h2 {
+    font-size: clamp(32px, 3vw, 48px);
+    color: var(--ff-white);
+    margin-bottom: 28px;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .form-group label {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ff-gray);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    color: var(--ff-white);
+    font-family: var(--font-body);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--ff-primary);
+  }
+  .form-group select option {
+    background: var(--ff-dark-2);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  .form-note {
+    font-size: 13px;
+    color: var(--ff-gray);
+    margin-top: -8px;
+  }
+  .form-note a {
+    color: var(--ff-secondary);
+  }
+
+  .info-card {
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .info-card h3 {
+    font-family: var(--font-condensed);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--ff-white);
+    margin-bottom: 10px;
+  }
+  .info-card p {
+    color: var(--ff-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .big-link {
+    display: block;
+    font-family: var(--font-condensed);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ff-secondary);
+    text-decoration: none;
+    margin-bottom: 8px;
+  }
+  .big-link:hover {
+    text-decoration: underline;
+  }
+
+  .social-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .social-stack a {
+    display: block;
+    padding: 10px 14px;
+    background: var(--ff-dark-3);
+    border: 1px solid #444;
+    border-radius: var(--radius);
+    color: var(--ff-light-gray);
+    text-decoration: none;
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+  }
+  .social-stack a:hover {
+    border-color: var(--ff-primary);
+    color: var(--ff-white);
+    background: rgba(232, 25, 44, 0.1);
+  }
+
+  @media (max-width: 900px) {
+    .contact-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

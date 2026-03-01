@@ -1,0 +1,292 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="About"
+  description="Learn about the Freedom Factory in Bradenton, FL — originally built in the early 1970s as Desoto Speedway and revived by Cleetus McFarland."
+>
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label">The Track</div>
+      <h1>About Freedom Factory</h1>
+    </div>
+  </div>
+
+  <section class="about-section">
+    <div class="container about-inner">
+      <div class="about-main">
+        <h2>A Legend Reborn</h2>
+        <p>
+          The world-famous Freedom Factory is located at 21050 FL-64 in
+          Bradenton, Florida, owned by well-known YouTuber and car enthusiast
+          Cleetus McFarland. What you see today started life in the early 1970s
+          as Desoto Speedway.
+        </p>
+
+        <p>
+          The 3/8-mile asphalt oval, with 12-degree banking through the turns,
+          quickly became known as the fastest 3/8-mile speedway in the South.
+          Being one of the most popular race tracks in the state, it saw many
+          NASCAR legends and circle track icons compete on its asphalt.
+        </p>
+
+        <p>
+          After many decades of success, the track unfortunately closed down and
+          went quiet for years. Then Cleetus McFarland — whose YouTube channel
+          has grown into one of the largest automotive channels in the world —
+          had a vision.
+        </p>
+
+        <p>
+          A second life has been given to a beloved track enriched with racing
+          history, and we are very proud to share it with everyone. The Freedom
+          Factory now hosts some of the most unique, entertaining, and downright
+          wild motorsport events you'll find anywhere in America.
+        </p>
+
+        <blockquote>"We hope to see you all at an event."</blockquote>
+
+        <h3>The Track Facts</h3>
+        <div class="fact-table">
+          <div class="fact-row">
+            <span>Distance</span><span>3/8 Mile (0.375 mi)</span>
+          </div>
+          <div class="fact-row"><span>Surface</span><span>Asphalt</span></div>
+          <div class="fact-row">
+            <span>Banking</span><span>12 Degrees</span>
+          </div>
+          <div class="fact-row">
+            <span>Configuration</span><span>Oval</span>
+          </div>
+          <div class="fact-row">
+            <span>Originally Built</span><span>Early 1970s</span>
+          </div>
+          <div class="fact-row">
+            <span>Original Name</span><span>Desoto Speedway</span>
+          </div>
+          <div class="fact-row">
+            <span>Current Owner</span><span>Cleetus McFarland</span>
+          </div>
+          <div class="fact-row">
+            <span>Address</span><span>21050 FL-64, Bradenton, FL 34212</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="about-sidebar">
+        <div class="sidebar-card">
+          <h4>Come Race With Us</h4>
+          <p>
+            Interested in competing at Freedom Factory? Check out our competitor
+            hub for class rules, registration info, and everything you need to
+            get on track.
+          </p>
+          <a href="/competitors" class="btn btn-red">Competitor Hub →</a>
+        </div>
+        <div class="sidebar-card">
+          <h4>Get Tickets</h4>
+          <p>
+            Spectator tickets for all 2026 events are available online.
+            Experience the fastest 3/8-mile oval in the South in person.
+          </p>
+          <a
+            href="https://tickets.thefoat.com/FreedomFactory"
+            class="btn btn-yellow"
+            target="_blank"
+            rel="noopener">Buy Tickets →</a
+          >
+        </div>
+        <div class="sidebar-card">
+          <h4>Follow the Action</h4>
+          <p>
+            Follow Freedom Factory USA on social media for race updates,
+            results, and behind-the-scenes content.
+          </p>
+          <div class="social-group">
+            <a
+              href="https://www.youtube.com/c/SPOCARVideos"
+              target="_blank"
+              rel="noopener"
+              class="social-btn">YouTube</a
+            >
+            <a
+              href="https://www.facebook.com/FreedomFactory1"
+              target="_blank"
+              rel="noopener"
+              class="social-btn">Facebook</a
+            >
+            <a
+              href="https://www.instagram.com/freedom.factoryusa/"
+              target="_blank"
+              rel="noopener"
+              class="social-btn">Instagram</a
+            >
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(to bottom, var(--ff-dark-2), var(--ff-black));
+    border-bottom: 1px solid #222;
+    padding: 64px 0 48px;
+  }
+  .page-hero h1 {
+    font-size: clamp(56px, 8vw, 100px);
+    color: var(--ff-white);
+  }
+
+  .about-section {
+    padding: var(--section-pad) 0;
+  }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-main h2 {
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--ff-white);
+    margin-bottom: 24px;
+  }
+  .about-main p {
+    color: var(--ff-light-gray);
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .about-main h3 {
+    font-size: clamp(28px, 3vw, 40px);
+    color: var(--ff-white);
+    margin: 40px 0 20px;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--ff-primary);
+    padding: 16px 24px;
+    margin: 32px 0;
+    background: var(--ff-dark-2);
+    border-radius: 0 8px 8px 0;
+    font-family: var(--font-condensed);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--ff-light-gray);
+  }
+
+  .fact-table {
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .fact-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid #222;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+  .fact-row:last-child {
+    border-bottom: none;
+  }
+  .fact-row span:first-child {
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    color: var(--ff-gray);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+  .fact-row span:last-child {
+    color: var(--ff-white);
+    font-family: var(--font-condensed);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sidebar-card {
+    background: var(--ff-dark-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .sidebar-card h4 {
+    font-family: var(--font-condensed);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ff-secondary);
+    margin-bottom: 10px;
+  }
+  .sidebar-card p {
+    color: var(--ff-gray);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .btn-red {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    background: var(--ff-primary);
+    color: white;
+    transition: background 0.2s;
+  }
+  .btn-red:hover {
+    background: var(--ff-primary-dark);
+  }
+
+  .social-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .social-btn {
+    display: block;
+    text-align: center;
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px;
+    background: var(--ff-dark-3);
+    border: 1px solid #444;
+    border-radius: var(--radius);
+    color: var(--ff-light-gray);
+    transition: all 0.2s;
+  }
+  .social-btn:hover {
+    background: var(--ff-primary);
+    color: white;
+    border-color: var(--ff-primary);
+  }
+
+  @media (max-width: 900px) {
+    .about-inner {
+      grid-template-columns: 1fr;
+    }
+    .fact-row {
+      grid-template-columns: 140px 1fr;
+    }
+  }
+</style>
